@@ -13,6 +13,10 @@ resource "aws_instance" "example" {
               echo "Hello, world!" > index.html
               nohup busybox httpd -f -p 8080 &
               EOF
+
+  tags = {
+    Name = "terraform-demo"
+  }
 }
 
 resource "aws_security_group" "allow_all_ingress_to_8080" {
